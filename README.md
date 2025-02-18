@@ -1,3 +1,3 @@
 # Python Examples
 
-This repository contains basic Python examples covering:
+This repository contains basic Python examples.
