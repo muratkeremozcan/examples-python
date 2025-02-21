@@ -44,7 +44,7 @@ for key, value in courses.items():
 		print(key, "is an AI course")
 
 	# Check if the value is "Programming"
-	if value == "Programming":
+	elif value == "Programming":
 		print(key, "is a Programming course")
 
 	# Otherwise, print that it is a "Data Engineering" course
