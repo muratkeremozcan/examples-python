@@ -8,6 +8,9 @@ echo 'eval "$(direnv hook zsh)"' >> ~/.zshrc && source ~/.zshrc  # enable direnv
 # Pull the repo, navigate to the folder
 direnv allow .  # allow direnv to auto-activate venv
 pip install -r requirements.txt  # install dependencies
+
+# lint and check syntax
+make all
 ```
 
 ## (Preferred) Auto-Activate the Virtual Environment with `direnv`
@@ -61,6 +64,8 @@ If things do not work, do:
 ```bash
 direnv allow .  # Make sure it's allowed
 direnv reload   # Force reload if needed
+# if still nothing
+source venv/bin/activate
 ```
 
 ---
