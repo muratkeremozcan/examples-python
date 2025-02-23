@@ -15,12 +15,12 @@ authors = {
 authors_below_twenty_five = []
 
 # Loop through the authors dictionary
-for author, book_count in authors.items():
+for key, value in authors.items():
   
   # Check for values less than 25
-  if book_count < 25:
+  if value < 25:
         # Append the author to the list
-    authors_below_twenty_five.append(author)
+    authors_below_twenty_five.append(key)
     
 print(authors_below_twenty_five)
 
@@ -58,5 +58,9 @@ for genre, average_sale in genre_sales.items():
 for genre, sale in genre_sales.items():
   
   # Check if genre is Horror or Mystery
-  if (genre == 'Horror' or genre == 'Mystery'):
+  if genre == "Horror" or genre == "Mystery":
+    print(genre, sale)
+  
+  # Check if genre is Thriller and sale is at least 3 million
+  elif genre == 'Thriller' and sale >= 3000000:
     print(genre, sale)
