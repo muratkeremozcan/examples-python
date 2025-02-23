@@ -27,10 +27,10 @@ rent = 1800
 if num_beds < min_num_beds:
   print('Insufficient bedrooms')
 # Check square feet
-if sq_foot <= min_sq_foot:
+elif sq_foot <= min_sq_foot:
   print('Too small')
 # Check the rent
-if (rent > max_rent):
+elif (rent > max_rent):
   print('Too expensive')
 else:
   print('This looks promising!')

@@ -27,7 +27,6 @@ q3_financials = (325780, 1041, 4271599)
 
 # Create a set for indie artists
 indie_set = {"Kings of Leon", "Arctic Monkeys", "Stereophonics"}
-print(indie_set)
 
 # array to set
 hip_hop = ["Drake", "JAY-Z", "50 Cent", "Drake"]
