@@ -12,14 +12,14 @@ converted_text = clean_string('I LoVe dATaCamP')
 
 print(converted_text)
 
-####
+#### one liner
 
 def clean_string2(text):
 	return text.replace(' ', '_').lower()
 
 print(clean_string2(raw_text))
 
-####
+#### one liner like arrow function
 
 clean_string3 = lambda text: text.replace(' ', '_').lower()
 
@@ -27,18 +27,16 @@ print(clean_string3(raw_text))
 
 
 ##############
-password = "not_very_secure_2023"
 
-# Define the password_checker function
-def password_checker(submission):
-  
-  # Check that the password variable and the submission match
-  if submission == password:
-    print("Successful login!")
-  
-  # Otherwise, print "Incorrect password"
-  else:
-    print("Incorrect password")
+sauce = "not_very_saucy_2023"
 
-# Call the function    
-password_checker(password)
+# Define the checker function
+def checker(submission):
+    # Check if the variable and submission match
+    if sauce == submission:
+        print("Successful!")
+    else:
+        print("Incorrect")
+
+# Call the function with the correct argument
+checker("NOT_VERY_SAUCY_2023")  
