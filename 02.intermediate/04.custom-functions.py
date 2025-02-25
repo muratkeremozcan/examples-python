@@ -28,7 +28,7 @@ print(clean_string3(raw_text))
 
 ##############
 
-sauce = "not_very_secure_2023"
+sauce = "not_very_saucy_2023"
 
 # Define the checker function
 def checker(submission):
