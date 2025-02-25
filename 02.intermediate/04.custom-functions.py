@@ -28,15 +28,15 @@ print(clean_string3(raw_text))
 
 ##############
 
-sample_pw = "not_very_secure_2023"
+sauce = "not_very_secure_2023"
 
-# Define the password_checker function
+# Define the checker function
 def checker(submission):
-    # Check if the password variable and submission match
-    if sample_pw == submission:
-        print("Successful login!")
+    # Check if the variable and submission match
+    if sauce == submission:
+        print("Successful!")
     else:
-        print("Incorrect password")
+        print("Incorrect")
 
 # Call the function with the correct argument
-checker("NOT_VERY_SECURE_2023")  
+checker("NOT_VERY_SAUCY_2023")  
