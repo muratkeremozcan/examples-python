@@ -1,5 +1,6 @@
-# try except (like try catch)
-# keeps executing even if try block fails
+# try except (like try catch in JS)
+# an error occurs inside the try block, the except block executes instead of crashing the program
+# Useful when handling expected errors without terminating execution.
 
 def snake_case(text):
   # Use a keyword allowing you to attempt to run code that cleans text
@@ -11,9 +12,11 @@ def snake_case(text):
     print('The snake_case() function expects a string as an argument, please check the data type provided.')
     return None
 
+############################################
 
-# raise  (isn't like anything in JS)
-# halts execution on error
+# raise  (not like anything in JS)
+# immediately stops execution and raises an error.
+# Used when you want to enforce strict type checking or conditions.
     
 print(snake_case('User Name 187'))
 # print(snake_case2(123))
