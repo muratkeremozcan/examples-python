@@ -7,8 +7,8 @@
 # sorted()
 # help()  gets information about a function
 
-print(help(len))
-help(int)
+# print(help(len))
+# help(int)
 
 course_ratings = {"LLM Concepts": 4.7, 
                   "Introduction to Data Pipelines": 4.75, 
