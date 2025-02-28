@@ -1,7 +1,6 @@
 # Local Python Environment Setup
 
 ```bash
-
 brew install direnv  # install direnv (if not installed)
 echo 'eval "$(direnv hook zsh)"' >> ~/.zshrc && source ~/.zshrc  # enable direnv in Zsh if not already so
 
@@ -9,7 +8,7 @@ echo 'eval "$(direnv hook zsh)"' >> ~/.zshrc && source ~/.zshrc  # enable direnv
 direnv allow .  # allow direnv to auto-activate venv
 pip install -r requirements.txt  # install dependencies
 
-# lint and check syntax
+# lint, check syntax, and type-check
 make all
 ```
 
@@ -104,20 +103,84 @@ Then, run your Python code as usual!
 
 ---
 
-## (re)Install Dependencies
+## Managing Dependencies
+
+To install a new package:
 
 ```sh
-pip install pandas
+pip install package_name
 ```
 
-To save installed packages for future use:
+To save all installed packages to requirements.txt (after adding new ones):
 
 ```sh
 pip freeze > requirements.txt
 ```
 
-To reinstall packages later, activate the environment and run:
+To reinstall all packages from requirements.txt:
 
 ```sh
 pip install -r requirements.txt
 ```
+
+## Type Checking with mypy
+
+This project uses mypy for static type checking. To run type checking:
+
+```sh
+# Run the type checker on the entire codebase
+make type-check
+
+# Run on a specific file
+venv/bin/mypy path/to/your/file.py
+```
+
+### Adding Type Annotations
+
+Python type annotations (similar to TypeScript) help catch errors before runtime:
+
+```python
+# Example of type annotations
+def greet(name: str) -> str:
+    return f"Hello, {name}!"
+
+# Type checking will catch this error
+# bad_result = greet(123)  # Error: Expected str, got int
+```
+
+The mypy configuration is stored in `mypy.ini` at the project root.
+
+## Code Quality Tools
+
+This project includes several tools to ensure code quality:
+
+### Linting with flake8
+
+Flake8 checks for syntax errors and style issues:
+
+```sh
+# Run the linter on the entire codebase
+make lint
+
+# Run directly for more options
+venv/bin/flake8 path/to/your/file.py
+```
+
+### Syntax Checking
+
+Verify that all Python files can be compiled:
+
+```sh
+# Check all Python files for syntax errors
+make check
+```
+
+### All-in-One
+
+Run all code quality checks with a single command:
+
+```sh
+make all
+```
+
+This will run the linter, syntax checker, and type checker in sequence.

@@ -1,0 +1,13 @@
+{
+  "deepscan.enable": true,
+  "python.defaultInterpreterPath": "${workspaceFolder}/venv/bin/python",
+  "cSpell.words": ["direnv", "venv"],
+  "wolf.disableHotModeWarning": true,
+  "python.analysis.autoImportCompletions": true,
+  "python.linting.enabled": true,
+  "python.linting.mypyEnabled": true,
+  "python.linting.mypyPath": "${workspaceFolder}/venv/bin/mypy",
+  "python.linting.flake8Enabled": true,
+  "python.linting.flake8Path": "${workspaceFolder}/venv/bin/flake8",
+  "makefile.configureOnOpen": false
+}
