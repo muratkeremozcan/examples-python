@@ -36,8 +36,13 @@ jobs:
       - name: Check Python syntax
         run: |
           find . -name "*.py" -type f -exec python -m py_compile {} +
-          
+
       # Run mypy type checking
       - name: Run type checking with mypy
         run: |
           python -m mypy --config-file=mypy.ini .
+
+# Using python -m mypy instead of direct mypy command ensures the tool is run
+# through the Python interpreter installed in the current environment, avoiding path resolution issues.
+# This approach guarantees that the correct version of mypy is used and that it's properly found
+# even if the executable isn't directly in the system PATH
