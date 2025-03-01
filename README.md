@@ -122,7 +122,6 @@ To reinstall all packages from requirements.txt:
 ```sh
 pip install -r requirements.txt
 ```
-
 ## Type Checking with mypy
 
 This project uses mypy for static type checking. To run type checking:
@@ -132,7 +131,7 @@ This project uses mypy for static type checking. To run type checking:
 make type-check
 
 # Run on a specific file
-venv/bin/mypy path/to/your/file.py
+venv/bin/python -m mypy path/to/your/file.py
 ```
 
 ### Adding Type Annotations
@@ -163,7 +162,7 @@ Flake8 checks for syntax errors and style issues:
 make lint
 
 # Run directly for more options
-venv/bin/flake8 path/to/your/file.py
+venv/bin/python -m flake8 path/to/your/file.py
 ```
 
 ### Syntax Checking
