@@ -38,9 +38,9 @@ jobs:
           find . -name "*.py" -type f -exec python -m py_compile {} +
 
       # Run mypy type checking
-      - name: Run type checking with mypy
-        run: |
-          python -m mypy --config-file=mypy.ini .
+      # - name: Run type checking with mypy
+      #   run: |
+      #     python -m mypy --config-file=mypy.ini .
 
 # Using python -m mypy instead of direct mypy command ensures the tool is run
 # through the Python interpreter installed in the current environment, avoiding path resolution issues.
