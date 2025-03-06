@@ -5,7 +5,7 @@ with open('world_indicators_simple.csv', 'r') as file:
 		file.readline()
 
     # Initialize an empty dictionary: counts_dict
-		counts_dict = {}
+		counts_dict: dict[str, int] = {}
 
     # Process only the first 10 rows
 		for j in range(10):
@@ -61,7 +61,7 @@ with open('world_indicators_simple.csv') as file:
 
 ####
 
-counts_dict2 = {}
+counts_dict2: dict[str, int] = {}
 
 with open('world_indicators_simple.csv') as file:
 	# Iterate over the generator from read_large_file()
@@ -69,7 +69,7 @@ with open('world_indicators_simple.csv') as file:
 	for line in read_large_file(file):
 
 		# Remove any leading/trailing spaces and split
-		row = line.strip().split()
+		row = line.strip().split(',')
 
 		# extract first column value
 		first_col = row[0]
