@@ -69,6 +69,32 @@ source venv/bin/activate
 
 ---
 
+## Troubleshooting Environment Issues
+
+If you encounter dependency conflicts, package installation errors, or issues with `setuptools.build_meta`, the most efficient solution is often to rebuild your environment from scratch:
+
+```bash
+# Step 1: Remove the existing environment
+rm -rf venv
+
+# Step 2: Create a new virtual environment
+python -m venv venv
+
+# Step 3: Activate and update basic tools
+source venv/bin/activate
+pip install --upgrade pip setuptools wheel
+
+# Step 4: Install all dependencies
+pip install -r requirements.txt
+```
+
+This approach ensures a clean environment with all dependencies properly resolved. It's particularly useful when:
+- You encounter version conflicts between packages
+- Build tools or setuptools are not working properly
+- You've made significant changes to your requirements.txt
+
+---
+
 ## (manual, not preferred) Create a Virtual Environment
 
 <details>

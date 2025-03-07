@@ -9,4 +9,7 @@ check:
 type-check:
 	venv/bin/python -m mypy --config-file=mypy.ini .
 
+install:
+	pip install -r requirements.txt
+
 all: install lint check type-check
