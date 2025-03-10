@@ -1,54 +1,72 @@
+# - Use `pd.read_csv(..., chunksize=n)` to read large CSVs in chunks, avoiding memory overload.
+# - `next(reader)` retrieves the next chunk (DataFrame) from the iterator.
+# - Boolean indexing (`df[df['col'] == value]`) filters DataFrames based on column values.
+# - `zip()` pairs values from multiple columns, useful for calculations.
+# - Use list comprehensions to efficiently compute new columns.
+# - Use `df.plot(kind='scatter', x=..., y=...)` to visualize data.
+
 import pandas as pd
 import matplotlib.pyplot as plt
-
-#  initialize reader object: df_reader
 import os
 
-# Get path to current directory
+# Get the absolute path of the CSV file to avoid path issues
 script_dir = os.path.dirname(os.path.abspath(__file__))
 csv_path = os.path.join(script_dir, 'ind_pop_data.csv')
 
+# Initialize reader object to process CSV in chunks
 df_reader = pd.read_csv(csv_path, chunksize=10)
 
+# Print the first two chunks (first 10 rows, then next 10 rows)
 print(next(df_reader))
 print(next(df_reader))
 
 
-#########
-# Initialize reader object: urb_pop_reader
+######### Process Population Data in Chunks #########
+
+# Initialize reader object again
 urb_pop_reader = pd.read_csv(csv_path, chunksize=10)
 
-# get the first chunk
+# Retrieve the first chunk
 df_urb_pop = next(urb_pop_reader)
 
-# check the head of the dataframe
+# Print first few rows
 print(df_urb_pop.head())
 
-# check out specific country: df_pop_ceb
 
-# access single column; the country code
+######### Filter Data for a Specific Country #########
+
+# Print 'CountryCode' column
 print(df_urb_pop['CountryCode'])
-# same column in boolean series
+
+# Boolean filtering: Create a Series where 'CountryCode' is 'CEB' (Central Europe and Baltics)
 print(df_urb_pop['CountryCode'] == 'CEB')
-# filter the DataFrame with Boolean Indexing
+
+# Use Boolean indexing to filter DataFrame
 df_pop_ceb = df_urb_pop[df_urb_pop['CountryCode'] == 'CEB']
-# JS: df_pop_ceb = df_urb_pop.filter(row => row.CountryCode === "CEB");
+# JS equivalent: df_pop_ceb = df_urb_pop.filter(row => row.CountryCode === "CEB");
 print(df_pop_ceb)
 
-# Zip DataFrame columns of interest: pops
+
+######### Pair Population and Urban Percentage Data #########
+
+# Print the 'Total Population' column
 print(df_pop_ceb['Total Population'])
-# The urban percentage is in the 'Value' column
+
+# The urban percentage is stored in the 'Value' column
 print(df_pop_ceb['Value'])
+
+# Pair 'Total Population' and 'Value' using zip()
 pops = zip(df_pop_ceb['Total Population'], df_pop_ceb['Value'])
-print(pops)
+print(pops)  # This prints the zip object reference
 
-# Turn zip object into list: pops_list
+# Convert zip object into a list of tuples
 pops_list = list(pops)
-
 print(pops_list)
 
-# Use list comprehension to create new DataFrame column 'Total Urban Population'
-# Calculate Total Urban Population = Total Population × Urban percentage ÷ 100
+
+######### Compute Total Urban Population #########
+
+# Compute Total Urban Population = Total Population × Urban percentage ÷ 100
 df_pop_ceb['Total Urban Population'] = [int(pop[0] * pop[1] / 100) for pop in pops_list]
 
 # Plot urban population data
