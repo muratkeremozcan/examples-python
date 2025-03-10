@@ -5,6 +5,8 @@ user_ids = ["T42YG4KTK", "VTQ39IDQ0", "CRL11YUWX",
 for user_id in user_ids:
 	print(user_id)
 
+# JS array: for of 
+# JS object: for in
 
 #################
 

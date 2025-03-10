@@ -14,6 +14,7 @@ sales_dict_df = pd.DataFrame(sales)
 
 # Preview the first five rows
 print(sales_dict_df.head())
+print(sales_dict_df)
 
 #############
 
@@ -24,3 +25,53 @@ print(sales_df['order_value'].mean())
 
 # Subset sales_df on the "order_value" column, then call the .sum() method to find the total value of all orders.
 print(sales_df['order_value'].sum())
+
+
+########
+# simple dataframe example
+# data frame vs list/array dict/obj
+
+data = ["Apple", "Banana", "Cherry"]
+
+
+print(pd.DataFrame(data))
+# 0
+# 0 Apple
+# 1 Banana
+# 2 Cherry
+
+print(pd.DataFrame(data, columns=["Fruits"]))
+# Fruits
+# 0 Apple
+# 1 Banana
+# 2 Cherry
+
+data2 = [
+    ["Apple", 10],
+    ["Banana", 15],
+    ["Cherry", 20]
+]
+
+print(pd.DataFrame(data2))
+# 0 1
+# 0 Apple 10
+# 1 Banana 15
+# 2 Cherry 20
+
+print(pd.DataFrame(data2, columns=["Fruits", "Amount"]))
+# Fruits Amount
+# 0 Apple 10
+# 1 Banana 15
+# 2 Cherry 20
+
+# A dict/obj dataframe looks the same
+data3 = {
+    "Apple": 10,
+    "Banana": 15,
+    "Cherry": 20
+}
+print(pd.DataFrame(data3.items()))
+# 0 1
+# 0 Apple 10
+# 1 Banana 15
+# 2 Cherry 20

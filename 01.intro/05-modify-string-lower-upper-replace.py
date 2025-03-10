@@ -10,3 +10,5 @@ most_popular_course = most_popular_course.replace(" ", "_")
 most_popular_course = most_popular_course.lower()
 
 print(most_popular_course)
+
+print(most_popular_course.upper())
