@@ -1,62 +1,66 @@
+# Like lists, iterators allow sequential access to data, but they don’t store all values in memory.
+# The iter() function converts an iterable into an iterator, allowing it to be used with next().
+# Iterators remember their current position and only advance forward.
+# Calling next() on an iterator retrieves the next value.
+# Once exhausted, an iterator raises a StopIteration error.
+
 # Create a list of strings: flash
 flash = ['jay garrick', 'barry allen', 'wally west', 'bart allen']
 
-# Create a for loop to loop over flash and print the values in the list. Use person as the loop variable.
+# Loop over the list normally and print values
 for f in flash:
-	print(f)
+    print(f)
 
-# Create an iterator for the list flash and assign the result to superhero.
+# Convert the list into an iterator
 superhero = iter(flash)
 
-# Print each of the items from superhero using next() 4 times.
-print(next(superhero))
-print(next(superhero))
-# print(next(superhero))
-# print(next(superhero))
-
+# Manually retrieve values using next()
+print(next(superhero))  
+print(next(superhero))  
+# print(next(superhero))  # Uncommenting will continue iteration
+# print(next(superhero))  # Uncommenting will continue iteration
 
 #############
+# range() is an iterator-like object that generates numbers lazily, without storing them.
+# The iter() function isn’t necessary for range() because it already behaves like an iterator.
 
-# Create an iterator for range(3): small_value
+# Create an iterator from range(3)
 small_value = iter(range(3))
 
-# Print the values in small_value
-print(next(small_value))
-# print(next(small_value))
-# print(next(small_value))
+# Retrieve values using next()
+print(next(small_value))  
+# print(next(small_value))  # Uncomment to continue iteration
+# print(next(small_value))  # Uncomment to continue iteration
 
-# Loop over range(3) and print the values
-
+# Looping over range() directly eliminates the need for iter() and next().
 for v in range(3):
-	print(v)
+    print(v)
 
-# # Create an iterator for range(10 ** 100): googol
-googol = iter(range(10 ** 100))
+# Large ranges can be iterated over lazily without memory issues.
+googol = iter(range(10 ** 100))  
 
-# Print the first 5 values from googol
+# Print first five values of an extremely large range
 print(next(googol))
 print(next(googol))
 print(next(googol))
 print(next(googol))
 print(next(googol))
-
 
 ########
+# range() is NOT a list by default; it is a lightweight iterable.
+# To store its values in memory, use list().
+# Useful for generating sequences without taking up memory space.
 
-# Create a range object that would produce the values from 10 to 20 using range(). Assign the result to values.
+# Create a range object from 10 to 20
 values = range(10, 21)
 
-# Print the range object
-print(values)
+# Printing a range object directly doesn’t show the numbers.
+print(values)  
 
-# Use the list() function to create a list of values from the range object values. Assign the result to values_list.
+# Convert range to a list explicitly
 values_list = list(values)
-
-# Print values_list
 print(values_list)
 
-# Get the sum of values: values_sum
+# Compute the sum of the range (works directly on range objects)
 values_sum = sum(values)
-
-# Print values_sum
 print(values_sum)

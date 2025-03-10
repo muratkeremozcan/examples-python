@@ -18,3 +18,5 @@ print(playlist[-1])
 
 # Print every song name in the playlist.
 print(playlist[1::3])
+
+# JS: playlist.filter((_, index) => index % 3 === 1);

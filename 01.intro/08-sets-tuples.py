@@ -1,5 +1,5 @@
 # sets
-# mutable collection that only stores unique elements.
+# difference with list/array: unique elements, no index access
 
 my_set = {1, 2, 3, 4, 4, 5}  # Duplicate "4" is removed
 print(my_set)  # Output: {1, 2, 3, 4, 5}
@@ -18,7 +18,7 @@ print(my_set)  # Output: {1, 3, 4, 5, 6}
 
 #####
 # tuples
-# immutable collection that can store duplicate values
+# difference with list/array: immutable
 
 q3_financials = (325780, 1041, 4271599)
 

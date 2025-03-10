@@ -1,58 +1,58 @@
 import pandas as pd
 
-# Initialize an empty dictionary: counts_dict
-from typing import Dict, Union, Optional
+# Processing large CSV files in chunks prevents memory overload.
+# A dictionary is used to count occurrences of unique values in a CSV column.
+# Iterating over a DataFrame column gives direct access to its values.
+# Using `chunksize` in `pd.read_csv()` creates an iterable that loads part of the file at a time.
 
-# In this context, counts_dict is a counter of occurrences
-# Keys are likely strings from CSV columns, values are counts
-# For CSV data, keys could be strings, ints, floats, etc. depending on column type
-counts_dict: Dict[Union[str, int, float], int] = {}
+# Initialize an empty dictionary to store counts
+counts_dict = {}
 
-# define the chunk size
+# Define the chunk size for processing
 chunk_size = 10
 
-# Iterate over the file chunk by chunk
+# Process the CSV file in chunks
 for chunk in pd.read_csv('tweets.csv', chunksize=chunk_size):
-
-    # Iterate over the 'lang' column in the current chunk
+    # Iterate over the 'lang' column in each chunk
     for entry in chunk['lang']:
-        if entry in counts_dict.keys():
-            counts_dict[entry] += 1
-        else:
-            counts_dict[entry] = 1
+        # Increment count if key exists, otherwise initialize it
+        counts_dict[entry] = counts_dict.get(entry, 0) + 1
 
-# Print the populated dictionary
+# Print the populated dictionary (language occurrences)
 print(counts_dict)
 
-def count_entries(csv_file: str, c_size: int, col_name: str) -> Dict[Union[str, int, float], int]:
-	"""Return a dictionary with counts of occurrences as value for each key.
-	
-	Parameters:
-	-----------
-	csv_file : str
-		Path to the CSV file
-	c_size : int
-		Chunk size for reading the CSV
-	col_name : str
-		Name of the column to count
-	
-	Returns:
-	--------
-	Dict[Union[str, int, float], int]
-		Dictionary with column values as keys and counts as values
-	"""
+#############
+# Defining a function to encapsulate the logic for reusability
 
-	counts_dict: Dict[Union[str, int, float], int] = {}
+def count_entries(csv_file, c_size, col_name):
+    """
+    Return a dictionary with counts of occurrences as values for each unique key.
 
-	for chunk in pd.read_csv(csv_file, chunksize=c_size):
-		for entry in chunk[col_name]:
-			if entry in counts_dict.keys():
-				counts_dict[entry] += 1
-			else:
-				counts_dict[entry] = 1
-	
-	return counts_dict
+    Parameters:
+    -----------
+    csv_file : str
+        Path to the CSV file
+    c_size : int
+        Chunk size for reading the CSV
+    col_name : str
+        Name of the column to count occurrences in
 
+    Returns:
+    --------
+    dict
+        Dictionary with column values as keys and their frequency as values.
+    """
+    counts_dict = {}
+
+    # Process CSV file chunk by chunk
+    for chunk in pd.read_csv(csv_file, chunksize=c_size):
+        for entry in chunk[col_name]:
+            counts_dict[entry] = counts_dict.get(entry, 0) + 1
+
+    return counts_dict
+
+# Call function to count occurrences in 'lang' column
 result_counts = count_entries('tweets.csv', 10, 'lang')
 
+# Print the result
 print(result_counts)
