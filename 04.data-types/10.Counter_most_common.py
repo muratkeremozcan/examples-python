@@ -24,9 +24,10 @@ penguins = [
 ]
 
 # [output_if_true | for variable in iterable | if condition]
-sexes = [penguin['sex'] for penguin in penguins] ##?
+sexes = [penguin['sex'] for penguin in penguins] 
+print(sexes)
 
-penguins_sex_counts = Counter(penguin['sex'] for penguin in penguins)
+penguins_sex_counts = Counter(sexes)
 print(penguins_sex_counts)
 
 print(penguins_sex_counts.most_common())

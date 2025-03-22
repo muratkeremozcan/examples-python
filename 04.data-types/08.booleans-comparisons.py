@@ -1,10 +1,6 @@
 # Empty lists, dictionaries, and other collections evaluate to False in boolean contexts.
-# Use == for value comparison, and is for identity comparison (checking if two objects share the same memory location).
-#	Use == when comparing values.
-#	Use is when checking for identity; if two objects are actually the same instance in memory (like None, True, or singleton objects).
+# Use == for value comparison, and use "is" for identity comparison (checking if two objects share the same memory location).
 # Use isclose when comparing numbers or floats
-# Floating-point precision issues can cause unexpected == failures; use math.isclose(x, y) for reliable float comparisons.
-# Small integers (-5 to 256) are cached in memory, so is may work for them, but not for larger numbers.
 
 
 my_list = []

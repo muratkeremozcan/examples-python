@@ -1,7 +1,13 @@
+# By default, Python dictionaries don’t allow you to access values with dot notation (like obj.property). 
+# Instead, you have to use the standard key lookup syntax, for example: my_dict['property'].
 # namedtuple creates an immutable object with named fields (prop access)
-# Provides cleaner attribute-style access (entry.species) instead of dict key lookup.
 
 from collections import namedtuple
+
+
+SpeciesDetails = namedtuple('SpeciesDetails', ['species', 'sex', 'body_mass'])
+print(SpeciesDetails('a', 'b', 'c'))
+
 
 weight_log = [
 	('Gentoo', 'MALE', 5500.0),
@@ -26,8 +32,6 @@ weight_log = [
 	('Adlie', 'FEMALE', 3175.0),
 ]
 
-SpeciesDetails = namedtuple('SpeciesDetails', ['species', 'sex', 'body_mass'])
-print(SpeciesDetails('a', 'b', 'c'))
 
 labeled_entries = []
 

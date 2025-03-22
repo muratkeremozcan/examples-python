@@ -15,6 +15,7 @@ boy_names = ['Liam', 'Noah', 'William', 'James', 'Oliver']
 pairs = list(zip(girl_names, boy_names))
 print(pairs)
 
+
 # Like range(), enumerate() returns a lazy iterable instead of an actual list.
 # Wrapping enumerate() in list() creates a list of tuples, each containing an index and a value.
 # enumerate() is useful for looping with an index.
@@ -31,9 +32,9 @@ for rank, pair in enumerate(pairs): # or you could say enumerate(pairs, start=0)
 	# Print formatted output; print(f'...') is like template literal in JS
 	print(f'Rank {rank+1}: {girl_name} and {boy_name}')
 
-# 1️⃣ zip(girl_names, boy_names) → Combines lists into pairs
-# 2️⃣ enumerate(pairs) → Adds a ranking number
-# 3️⃣ for rank, pair in enumerate(pairs, start=1) → Loops over ranked pairs
+# zip(girl_names, boy_names) → Combines lists into pairs
+# enumerate(pairs) → Adds a ranking number
+# for rank, pair in enumerate(pairs, start=1) → Loops over ranked pairs
 
 
 ###########
