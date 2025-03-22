@@ -1,5 +1,4 @@
-# sets
-# difference with list/array: unique elements, no index access
+# set's difference with list/array: unique elements, no index access
 # Use set() to convert lists into sets for uniqueness.
 # difference() finds elements in one set but not in another.
 # union() merges sets, keeping unique values.
@@ -48,3 +47,22 @@ overlapping_species = female_penguin_species.intersection(male_penguin_species) 
 # len(set1) gets the length, same as the array/list method
 print(len(all_species))
 len(penguins) ##?
+
+
+############
+# JS equivalent would take some work
+
+# const setA = new Set([1, 2, 3]);
+# const setB = new Set([3, 4, 5]);
+
+# // Union: combine both sets into a new one.
+# const union = new Set([...setA, ...setB]);
+# console.log(union); // Set { 1, 2, 3, 4, 5 }
+
+# // Intersection: filter setA for elements that exist in setB.
+# const intersection = new Set([...setA].filter(x => setB.has(x)));
+# console.log(intersection); // Set { 3 }
+
+# // Difference: elements in setA that are not in setB.
+# const difference = new Set([...setA].filter(x => !setB.has(x)));
+# console.log(difference); // Set { 1, 2 }

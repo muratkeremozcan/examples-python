@@ -35,6 +35,7 @@ print(female_penguin_weights)
 #### same thing with defaultdict
 
 # defaultdict eliminates the need to manually check if a key exists before appending.
+# defaultdict with a default type of list
 female_penguin_weights = defaultdict(list)
 
 for species, sex, body_mass in weight_log:
@@ -66,7 +67,6 @@ print(male_penguin_weights)
 
 #### same thing with default dict
 
-# defaultdict with a default type of list
 male_penguin_weights = defaultdict(list)
 
 for species, sex, body_mass in weight_log:

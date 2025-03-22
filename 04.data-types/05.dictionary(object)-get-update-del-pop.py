@@ -27,7 +27,7 @@ squirrels_union = (
     ]
 )
 
-# Direct assignment for Madison Square Park: squirrels_by_park['Madison Square Park'] = squirrels_madison
+# Direct assignment for Madison Square Park:
 squirrels_by_park['Madison Square Park'] = squirrels_madison
 # at this point {'Union Square Park': [], 'Madison Square Park': [....] }
 print(squirrels_by_park)
