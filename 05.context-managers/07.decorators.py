@@ -29,6 +29,7 @@ multiplyD(1, 5) ##?
 
 # the decorator
 def print_args(func):
+  # *args captures any extra positional arguments (the “regular” ones), and **kwargs captures any extra named (keyword) arguments
 	def wrapper(*args, **kwargs):
 		print("Called with arguments:", args, kwargs)
 		return func(*args, **kwargs)
