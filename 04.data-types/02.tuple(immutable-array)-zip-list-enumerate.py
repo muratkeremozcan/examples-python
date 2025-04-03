@@ -7,8 +7,8 @@
 # Using f-strings allows for cleaner and more readable formatted output.
 
 
-girl_names = ['Emma', 'Olivia', 'Ava', 'Sophia', 'Isabella']
-boy_names = ['Liam', 'Noah', 'William', 'James', 'Oliver']
+girl_names = ["Emma", "Olivia", "Ava", "Sophia", "Isabella"]
+boy_names = ["Liam", "Noah", "William", "James", "Oliver"]
 
 # zip() returns an iterable (lazy evaluation)
 # list() forces the evaluation of the iterable (stores results in memory)
@@ -24,13 +24,13 @@ print(enumerate(pairs))
 print(list(enumerate(pairs)))
 
 # Iterate over pairs while keeping track of position using enumerate()
-for rank, pair in enumerate(pairs): # or you could say enumerate(pairs, start=0)
+for rank, pair in enumerate(pairs):  # or you could say enumerate(pairs, start=0)
 
-	# unpack the tuple
-	girl_name, boy_name = pair
+  # unpack the tuple
+  girl_name, boy_name = pair
 
-	# Print formatted output; print(f'...') is like template literal in JS
-	print(f'Rank {rank+1}: {girl_name} and {boy_name}')
+  # Print formatted output; print(f'...') is like template literal in JS
+  print(f"Rank {rank + 1}: {girl_name} and {boy_name}")
 
 # zip(girl_names, boy_names) → Combines lists into pairs
 # enumerate(pairs) → Adds a ranking number
@@ -41,11 +41,11 @@ for rank, pair in enumerate(pairs): # or you could say enumerate(pairs, start=0)
 # Careful! A trailing comma (,') in an assignment makes it a tuple!
 
 # Create the normal variable: normal
-normal = 'simple'  # This is just a normal string
+normal = "simple"  # This is just a normal string
 
 # Create the mistaken variable: error
-error = 'trailing comma',  # The trailing comma makes this a tuple!
+error = ("trailing comma",)  # The trailing comma makes this a tuple!
 
 # Print the types of the variables
 print(type(normal))  # Output: <class 'str'> → It's a normal string
-print(type(error))   # Output: <class 'tuple'> → Because of the comma!
+print(type(error))  # Output: <class 'tuple'> → Because of the comma!

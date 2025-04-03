@@ -200,6 +200,24 @@ Verify that all Python files can be compiled:
 make check
 ```
 
+### Code Formatting
+
+This project uses [autopep8](https://github.com/hhatto/autopep8) for code formatting and [isort](https://pycqa.github.io/isort/) for import sorting. Both tools are configured to use 2-space indentation.
+
+```sh
+# Format all Python files in the project
+make format
+
+# Check if files are properly formatted without changing them
+make format-check
+
+# Run formatters directly
+venv/bin/python -m autopep8 --in-place --indent-size=2 path/to/your/file.py
+venv/bin/python -m isort path/to/your/file.py
+```
+
+The formatting tools are configured in `setup.cfg` at the project root. VSCode is set up to automatically format Python files on save.
+
 ### All-in-One
 
 Run all code quality checks with a single command:

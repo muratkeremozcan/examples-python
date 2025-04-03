@@ -2,11 +2,13 @@
 
 # The 'timer()' context manager measures the execution time of the code within its block.
 # The 'open_read_only()' context manager opens a file for reading only and ensures it closes automatically.
-# Using os.path.dirname(__file__) helps us construct an absolute path to avoid file path issues.
+# Using os.path.dirname(__file__) helps us construct an absolute path to
+# avoid file path issues.
 
+import contextlib
 import os
 import time
-import contextlib
+
 
 # Add a decorator that will make timer() a context manager
 @contextlib.contextmanager
@@ -20,7 +22,8 @@ def timer():
   # Send control back to the context block
   yield
   end = time.time()
-  print('Elapsed: {:.2f}s'.format(end - start))
+  print("Elapsed: {:.2f}s".format(end - start))
+
 
 with timer():
   time.sleep(0.25)
@@ -40,18 +43,18 @@ def open_read_only(filename):
     file object
   """
 
-	# Construct an absolute path based on this script's directory
+  # Construct an absolute path based on this script's directory
   script_dir = os.path.dirname(__file__)  # Directory containing this script
   file_path = os.path.join(script_dir, filename)
 
-  read_only_file = open(file_path, mode='r')
+  read_only_file = open(file_path, mode="r")
 
   # Yield read_only_file so it can be assigned to alice
   yield read_only_file
-  
-	# Close read_only_file
+
+  # Close read_only_file
   read_only_file.close()
 
 
-with open_read_only('alice.txt') as alice:
+with open_read_only("alice.txt") as alice:
   print(alice.read())

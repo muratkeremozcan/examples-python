@@ -4,7 +4,7 @@
 # Once a generator is exhausted, you must recreate it to iterate again.
 
 # List of strings
-fellowship = ['frodo', 'samwise', 'merry', 'aragorn', 'legolas', 'boromir', 'gimli']
+fellowship = ["frodo", "samwise", "merry", "aragorn", "legolas", "boromir", "gimli"]
 
 # LIST COMPREHENSION VS GENERATOR EXPRESSION
 # [output_if_true | for variable in iterable | if condition]
@@ -36,7 +36,7 @@ print(next(result))  # 4
 
 # The generator is now at position 5, and will continue from there
 for value in result:
-    print(value)  # Prints remaining values up to 30
+  print(value)  # Prints remaining values up to 30
 
 
 #############
@@ -49,31 +49,38 @@ for value in result:
 
 
 # Create a list of strings: lannister
-lannister = ['cersei', 'jaime', 'tywin', 'tyrion', 'joffrey']
+lannister = ["cersei", "jaime", "tywin", "tyrion", "joffrey"]
 
 # Generator expression: lazily computes string lengths
 # If you use a list comprehension instead of a generator expression for lengths, the main difference would be memory usage and evaluation strategy
-# Generator expression is useful for large datasets. List comprehension is faster for small lists, since accessing elements is instantaneous.
+# Generator expression is useful for large datasets. List comprehension is
+# faster for small lists, since accessing elements is instantaneous.
 lengths = (len(person) for person in lannister)
 
 # Iterating over generator to fetch values
 for value in lengths:
-    print(value)  # Prints lengths of each name
+  print(value)  # Prints lengths of each name
 
 
 #############
 
 # GENERATOR FUNCTION EXAMPLE
 
+
 # Define generator function get_lengths
 def get_lengths(input_list):
-    """Generator function that yields the
-    length of the strings in input_list."""
+  """Generator function that yields the
+  length of the strings in input_list."""
 
-    # Yield the length of a string one at a time
-    for person in input_list:
-        yield len(person)  # Instead of returning all at once, it lazily yields one-by-one
+  # Yield the length of a string one at a time
+  for person in input_list:
+    yield len(
+        person
+    )  # Instead of returning all at once, it lazily yields one-by-one
+
 
 # Calling the generator function and iterating over it
 for value in get_lengths(lannister):
-    print(value)  # Prints the lengths of names, just like the generator expression above
+  print(
+      value
+  )  # Prints the lengths of names, just like the generator expression above

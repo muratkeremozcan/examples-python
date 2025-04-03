@@ -5,21 +5,20 @@
 
 # with context-manager(args) as variable-name
 # with context-manager()
-with open('alice.txt') as file:
-	text = file.read()
+with open("alice.txt") as file:
+  text = file.read()
 
 n = 0
 for word in text.split():
-	if word.lower() in ['cat', 'cats']:
-		n += 1
+  if word.lower() in ["cat", "cats"]:
+    n += 1
 
 print('Lewis Carroll uses the word "cat" {} times'.format(n))
 
 
+# Context manager examples
 
-## Context manager examples
-
-## •	Temporary Files:
+# •	Temporary Files:
 # import tempfile
 
 # with tempfile.TemporaryFile() as temp_file:
@@ -28,7 +27,7 @@ print('Lewis Carroll uses the word "cat" {} times'.format(n))
 #     data = temp_file.read()
 
 
-## •	DB connections
+# •	DB connections
 # import sqlite3
 
 # with sqlite3.connect('my_database.db') as conn:
@@ -37,14 +36,14 @@ print('Lewis Carroll uses the word "cat" {} times'.format(n))
 #     results = cursor.fetchall()
 
 
-## •	Suppressing Exceptions:
+# •	Suppressing Exceptions:
 # from contextlib import suppress
 
 # with suppress(FileNotFoundError):
 #     open('nonexistent_file.txt')
 
 
-## Custom context managers
+# Custom context managers
 # from contextlib import contextmanager
 
 # @contextmanager

@@ -7,3 +7,5 @@ tzdata==2025.1
 flake8==7.1.2
 mypy==1.9.0
 matplotlib==3.8.2
+autopep8==2.0.4
+isort==5.13.2

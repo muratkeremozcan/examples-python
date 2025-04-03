@@ -1,12 +1,16 @@
 sale_price = 29.99
 
 # Define the add_tax lambda function to multiply the argument provided to it, x, by 1.2.
-add_tax = lambda x: x * 1.2
 
-# Call the lambda function
+
+def add_tax(x):
+  return x * 1.2
+
+
+# Call the lambda function
 print(add_tax(sale_price))
 
-# Call a lambda function adding 20% to sale_price
+# Call a lambda function adding 20% to sale_price
 print((lambda x: x * 1.2)(sale_price))
 
 

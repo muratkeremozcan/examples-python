@@ -9,7 +9,7 @@
 import pandas as pd
 
 # Load the CSV file into a DataFrame
-df = pd.read_csv('world_indicators_simple.csv')
+df = pd.read_csv("world_indicators_simple.csv")
 print(df)  # Print the entire DataFrame
 
 # Extract column names (header row)
@@ -30,25 +30,26 @@ print(rs_dict)
 
 ########### Function version for reusability ###########
 
+
 def lists2dict(list1, list2):
-    """
-    Convert two lists into a dictionary, where list1 provides keys and list2 provides values.
-    
-    Parameters:
-    - list1 (list): Keys (e.g., column names)
-    - list2 (list): Values (e.g., row values)
-    
-    Returns:
-    - dict: Dictionary mapping keys to values
-    """
-    
-    # Zip lists together
-    zipped_lists = zip(list1, list2)
+  """
+  Convert two lists into a dictionary, where list1 provides keys and list2 provides values.
 
-    # Convert zipped lists into a dictionary
-    rs_dict = dict(zipped_lists)
+  Parameters:
+  - list1 (list): Keys (e.g., column names)
+  - list2 (list): Values (e.g., row values)
 
-    return rs_dict
+  Returns:
+  - dict: Dictionary mapping keys to values
+  """
+
+  # Zip lists together
+  zipped_lists = zip(list1, list2)
+
+  # Convert zipped lists into a dictionary
+  rs_dict = dict(zipped_lists)
+
+  return rs_dict
 
 
 # Convert first row to a dictionary using the function
