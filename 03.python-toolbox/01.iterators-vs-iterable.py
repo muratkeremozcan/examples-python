@@ -5,39 +5,40 @@
 # Once exhausted, an iterator raises a StopIteration error.
 
 # Create a list of strings: flash
-flash = ['jay garrick', 'barry allen', 'wally west', 'bart allen']
+flash = ["jay garrick", "barry allen", "wally west", "bart allen"]
 
 # Loop over the list normally and print values
 for f in flash:
-    print(f)
+  print(f)
 
 # Convert the list into an iterator
 superhero = iter(flash)
 
 # Manually retrieve values using next()
-print(next(superhero))  
-print(next(superhero))  
+print(next(superhero))
+print(next(superhero))
 # print(next(superhero))  # Uncommenting will continue iteration
 # print(next(superhero))  # Uncommenting will continue iteration
 
 #############
 # range() is an iterator-like object that generates numbers lazily, without storing them.
-# The iter() function isn’t necessary for range() because it already behaves like an iterator.
+# The iter() function isn’t necessary for range() because it already
+# behaves like an iterator.
 
 # Create an iterator from range(3)
 small_value = iter(range(3))
 
 # Retrieve values using next()
-print(next(small_value))  
+print(next(small_value))
 # print(next(small_value))  # Uncomment to continue iteration
 # print(next(small_value))  # Uncomment to continue iteration
 
 # Looping over range() directly eliminates the need for iter() and next().
 for v in range(3):
-    print(v)
+  print(v)
 
 # Large ranges can be iterated over lazily without memory issues.
-googol = iter(range(10 ** 100))  
+googol = iter(range(10**100))
 
 # Print first five values of an extremely large range
 print(next(googol))
@@ -55,7 +56,7 @@ print(next(googol))
 values = range(10, 21)
 
 # Printing a range object directly doesn’t show the numbers.
-print(values)  
+print(values)
 
 # Convert range to a list explicitly
 values_list = list(values)

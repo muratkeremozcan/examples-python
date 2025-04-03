@@ -8,10 +8,10 @@
 import pandas as pd
 
 # Load the csv file into a DataFrame
-df = pd.read_csv('tweets.csv')
+df = pd.read_csv("tweets.csv")
 
 # Extract the 'created_at' column (this is a Series)
-tweet_time = df['created_at']
+tweet_time = df["created_at"]
 
 # **Extract clock time from timestamp**
 # - The timestamp format is likely: "YYYY-MM-DD HH:MM:SS"
@@ -21,5 +21,5 @@ print(tweet_clock_time)
 
 # **Filter times ending in '19' seconds**
 # - Extract times, but only keep those where **seconds = '19'**
-tweet_clock_time2 = [entry[11:19] for entry in tweet_time if entry[17:19] == '19']
+tweet_clock_time2 = [entry[11:19] for entry in tweet_time if entry[17:19] == "19"]
 print(tweet_clock_time2)

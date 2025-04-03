@@ -27,12 +27,12 @@ print(f"{float3:.7f}")  # Forces float format with 7 decimal places
 
 # / returns a float result & type
 
-print(2/1)
-print(1/2)
+print(2 / 1)
+print(1 / 2)
 
 # // is same as math.floor(numerator/divisor) , returns an int type
-print(2//1)
-print(1//2)
+print(2 // 1)
+print(1 // 2)
 
-print(type(2/1))
-print(type(2//1))
+print(type(2 / 1))
+print(type(2 // 1))

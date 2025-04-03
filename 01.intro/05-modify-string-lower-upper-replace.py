@@ -1,6 +1,6 @@
 most_popular_course = "Intro to Embeddings with the OpenAI API"
 
-# Update the first word
+# Update the first word
 most_popular_course = most_popular_course.replace("Intro", "Introduction")
 
 # Swap spaces to underscores throughout the string contained in most_popular_course.
