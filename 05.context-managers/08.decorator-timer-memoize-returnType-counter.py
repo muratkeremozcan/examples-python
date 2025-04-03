@@ -4,18 +4,22 @@ def timer(func):
 	"""A decorator that prints how long a function took to run."""
 	def wrapper(*args, **kwargs):
 		t_start = time.time()
+
 		result = func(*args, **kwargs)
+		
 		t_total = time.time() - t_start
+
 		print(f"{func.__name__} took {t_total:.2f}s to run.")
+
 		return result
 
 	return wrapper
 
+# Simulate a slow function by sleeping for 1 second
 @timer
 def slow_function():
-    # Simulate a slow function by sleeping for 1 second
-    time.sleep(1)
-    return "Finished sleeping"
+	time.sleep(1)
+	return "Finished sleeping"
 
 print(slow_function())
 
@@ -32,19 +36,20 @@ def memoize(func):
 		key = (args, kwargs_key)
 		# If the key isn't in the cache, call func and store the result.
 		if key not in cache:
-				cache[key] = func(*args, **kwargs)
+			cache[key] = func(*args, **kwargs)
+		
 		return cache[key]
 
 	return wrapper
 
 
 # Example usage for the memoize decorator
+# A recursive Fibonacci function that benefits from memoization
 @memoize
 def fibonacci(n):
-    # A recursive Fibonacci function that benefits from memoization
-    if n <= 1:
-        return n
-    return fibonacci(n-1) + fibonacci(n-2)
+	if n <= 1:
+		return n
+	return fibonacci(n-1) + fibonacci(n-2)
 
 print("Fibonacci(10):", fibonacci(10))
 
