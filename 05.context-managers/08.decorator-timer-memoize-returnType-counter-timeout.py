@@ -1,4 +1,6 @@
+import signal
 import time
+from functools import wraps
 
 
 def timer(func):
@@ -107,3 +109,48 @@ def foo():
 foo()
 foo()
 print("foo() was called {} times.".format(foo.count))
+
+
+##########
+
+
+def timeout(seconds=5):
+  """
+  Decorator factory that returns a decorator to limit a function's runtime.
+  If the function does not complete within 'seconds', a built-in TimeoutError is raised.
+  """
+  def decorator(func):
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+      def handler(signum, frame):
+        raise TimeoutError(
+            f"Function '{func.__name__}' timed out after {seconds} second(s)."
+        )
+
+      # Set the alarm
+      signal.signal(signal.SIGALRM, handler)
+      signal.alarm(seconds)
+
+      try:
+        return func(*args, **kwargs)
+      finally:
+        # Disable the alarm
+        signal.alarm(0)
+
+    return wrapper
+  return decorator
+
+# Example usage:
+
+@timeout(10)
+def slow_operation():
+  time.sleep(12)
+  return "Finished!"
+
+try:
+  print(slow_operation())
+except TimeoutError as e:
+  print(e)
+
+
+
