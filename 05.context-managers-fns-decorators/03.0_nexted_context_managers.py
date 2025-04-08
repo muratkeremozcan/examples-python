@@ -8,7 +8,6 @@ import contextlib
 import os
 import random
 
-
 @contextlib.contextmanager
 def stock(ticker):
   print(f"Connecting to NASDAQ for {ticker}")
@@ -20,13 +19,14 @@ def stock(ticker):
   try:
     connection = Stock()
     yield connection
+    
   finally:
     print(f"Disconnecting from NASDAQ for {ticker}...")
 
 
 with stock("NVDA") as nvda:
   script_dir = os.path.dirname(__file__)
-  # here we have to come up with a file path (a bit contrived)
+  # here we have to come up with a file path (a bit contrived, better version next file)
   file_path = os.path.join(script_dir, "NVDA.txt")
 
   with open(file_path, "w") as f_out:

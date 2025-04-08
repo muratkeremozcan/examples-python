@@ -2,8 +2,7 @@
 
 # The 'timer()' context manager measures the execution time of the code within its block.
 # The 'open_read_only()' context manager opens a file for reading only and ensures it closes automatically.
-# Using os.path.dirname(__file__) helps us construct an absolute path to
-# avoid file path issues.
+# Using os.path.dirname(__file__) helps us construct an absolute path to avoid file path issues.
 
 import contextlib
 import os
@@ -56,5 +55,12 @@ def open_read_only(filename):
   read_only_file.close()
 
 
-with open_read_only("alice.txt") as alice:
-  print(alice.read())
+with open_read_only("alice.txt") as file:
+  text = file.read()
+
+n = 0
+for word in text.split():
+  if word.lower() in ["cat", "cats"]:
+    n += 1
+
+print('Lewis Carroll uses the word "cat" {} times'.format(n))
