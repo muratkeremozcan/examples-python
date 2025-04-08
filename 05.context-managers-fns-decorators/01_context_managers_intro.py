@@ -7,7 +7,7 @@
 # with context-manager()
 with open("alice.txt") as file:
   text = file.read()
-
+# we have some file directory issues here, better version next file
 n = 0
 for word in text.split():
   if word.lower() in ["cat", "cats"]:

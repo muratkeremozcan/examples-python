@@ -21,7 +21,6 @@ multiplyD(1, 5)  # ?
 
 # decorator version
 
-
 @double_args
 def multiplyD(a, b):
   return a * b
