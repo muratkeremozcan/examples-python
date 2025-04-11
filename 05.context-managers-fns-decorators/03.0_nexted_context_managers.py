@@ -8,6 +8,7 @@ import contextlib
 import os
 import random
 
+
 @contextlib.contextmanager
 def stock(ticker):
   print(f"Connecting to NASDAQ for {ticker}")
@@ -19,7 +20,7 @@ def stock(ticker):
   try:
     connection = Stock()
     yield connection
-    
+
   finally:
     print(f"Disconnecting from NASDAQ for {ticker}...")
 

@@ -2,7 +2,8 @@
 
 # The 'timer()' context manager measures the execution time of the code within its block.
 # The 'open_read_only()' context manager opens a file for reading only and ensures it closes automatically.
-# Using os.path.dirname(__file__) helps us construct an absolute path to avoid file path issues.
+# Using os.path.dirname(__file__) helps us construct an absolute path to
+# avoid file path issues.
 
 import contextlib
 import os
