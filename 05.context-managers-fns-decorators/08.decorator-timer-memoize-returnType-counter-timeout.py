@@ -142,15 +142,14 @@ def timeout(seconds=5):
 
 # Example usage:
 
+
 @timeout(10)
 def slow_operation():
   time.sleep(12)
   return "Finished!"
 
+
 try:
   print(slow_operation())
 except TimeoutError as e:
   print(e)
-
-
-

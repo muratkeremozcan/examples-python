@@ -3,6 +3,8 @@ import random
 from contextlib import contextmanager
 
 # useful utility to change cwd to current directory
+
+
 @contextmanager
 def in_dir(directory):
   """Change current working directory to `directory`, run some code, and then change back."""
@@ -29,7 +31,7 @@ def stock(ticker):
   try:
     connection = Stock()
     yield connection
-    
+
   finally:
     print(f"Disconnecting from NASDAQ for {ticker}...")
 

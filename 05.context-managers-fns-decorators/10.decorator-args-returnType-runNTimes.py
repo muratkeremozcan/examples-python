@@ -3,7 +3,6 @@
 
 from functools import wraps
 
-
 # - run_n_times: Runs the decorated function a specified number of times.
 
 def run_n_times(n):
@@ -61,7 +60,6 @@ def hello_goodbye(name):
 print(hello_goodbye('Alice'))
 
 
-
 #######
 #  a decorator that will let you tag your functions with an arbitrary list of tags
 
@@ -75,41 +73,48 @@ def tag(*tags):
   # Return the new decorator
   return decorator
 
+
 @tag('test', 'this is a tag')
 def foo():
   pass
+
 
 print(foo.tags)
 
 ############
 # a decorator that returns the return type of a function
 
+
 def returns(return_type):
   def decorator(func):
     @wraps(func)
     def wrapper(*args, **kwargs):
       result = func(*args, **kwargs)
-      
-      assert type(result) == return_type, f"Expected {return_type}, but got {type(result)}"
+
+      assert isinstance(result, return_type), f"Expected {
+          return_type}, but got {type(result)}"
       return result
     return wrapper
   return decorator
-  
+
+
 @returns(list)
 def foo(value):
   return value
 
+
 try:
-  print(foo([1,2,3]))
+  print(foo([1, 2, 3]))
 except AssertionError:
   print('foo() did not return a dict!')
+
 
 @returns(dict)
 def foo2(value):
   return value
 
+
 try:
-  print(foo2([1,2,3]))
+  print(foo2([1, 2, 3]))
 except AssertionError:
   print('foo() did not return a dict!')
-
