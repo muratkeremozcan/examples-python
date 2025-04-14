@@ -9,3 +9,4 @@ mypy==1.9.0
 matplotlib==3.8.2
 autopep8==2.0.4
 isort==5.13.2
+line-profiler==4.2.0
