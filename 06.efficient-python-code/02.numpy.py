@@ -1,4 +1,4 @@
-# A numpy array contains homogeneous data types (which reduces memory consumption) 
+# A numpy array contains homogeneous data types (which reduces memory consumption)
 # and provides the ability to apply operations on all elements
 
 
@@ -37,9 +37,11 @@ print(*enumerate(new_times))
 guest_arrivals = [(names[i], time) for i, time in enumerate(new_times)]
 print(guest_arrivals)
 
+
 def welcome_guest(guest):
-	name, time = guest
-	return f"Welcome {name}! You arrived {time} minutes late."
+  name, time = guest
+  return f"Welcome {name}! You arrived {time} minutes late."
+
 
 # Map the welcome_guest function to each (guest,time) pair
 welcome_map = map(welcome_guest, guest_arrivals)

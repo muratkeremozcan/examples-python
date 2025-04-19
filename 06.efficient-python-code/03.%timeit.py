@@ -11,7 +11,7 @@ print(nums_list_comp)
 nums_unpack = [*range(51)]
 print(nums_unpack)
 
-# IPython feature and isn’t recognized in a plain Python script when run with the standard Python interpreter. 
+# IPython feature and isn’t recognized in a plain Python script when run with the standard Python interpreter.
 # To use %timeit, you need to run the code in an IPython environment (for example, in a Jupyter Notebook or an IPython shell)
 # %timeit [num for num in range(51)]
 # %timeit [*range(51)]
