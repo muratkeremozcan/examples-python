@@ -1,5 +1,6 @@
 # eliminate loops when possible, but when it is not:
-# anything that is done once should be outside the loop
+# Push any one‑off work out of your loops (e.g. computing means, std‑devs, lengths, total counts, etc.)
+# When you do need to iterate, lean on comprehensions, map/filter, itertools or NumPy vectorization instead of raw for‑loops.
 
 from collections import Counter
 
