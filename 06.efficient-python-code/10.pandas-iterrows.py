@@ -87,7 +87,6 @@ giants_df = pd.DataFrame({
 	'Playoffs': [1, 0, 1, 0, 0]
 })
 
-
 #   Team League  Year   RS   RA   W    G  Playoffs
 # 0  SFG     NL  2012  718  649  94  162         1
 # 1  SFG     NL  2011  570  578  86  162         0
@@ -105,3 +104,9 @@ for index, row in giants_df.iterrows():
 
 giants_df['RD'] = run_diffs
 print(giants_df)
+#   Team League  Year   RS   RA   W    G  Playoffs   RD
+# 0  SFG     NL  2012  718  649  94  162         1   69
+# 1  SFG     NL  2011  570  578  86  162         0   -8
+# 2  SFG     NL  2010  697  583  92  162         1  114
+# 3  SFG     NL  2009  657  611  88  162         0   46
+# 4  SFG     NL  2008  640  759  72  162         0 -119
