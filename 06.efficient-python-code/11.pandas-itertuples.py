@@ -1,3 +1,4 @@
+# .itertuples() is a faster row-wise loop that returns each row as a namedtuple
 import pandas as pd
 
 rangers_df = pd.DataFrame({
