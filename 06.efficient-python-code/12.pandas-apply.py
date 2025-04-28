@@ -98,7 +98,7 @@ def calc_win_percentage(wins, games_played):
 	win_percentage = wins / games_played
 	return np.round(win_percentage,2)
 
-# apply the calc_win_percentage() function to each row of the DataFrame with a lambda function
+# apply the function to each row of the DataFrame with a lambda function
 win_percentages = dbacks_df.apply(lambda row: calc_win_percentage(row['W'], row['G']), axis=1)
 
 # append a new column to dbacks_df

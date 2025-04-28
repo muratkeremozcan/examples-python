@@ -1,5 +1,10 @@
-# - Use collections.Counter to easily tally frequencies: Counter(list/array)
-# - itertools.combinations efficiently generates all unique combinations: combinations(list/array, 2)
+# zip() is useful for combining multiple iterables element-wise into a single iterable of tuples.
+# Using *zip() unzips the data, effectively reversing zip().
+# Use collections.Counter to easily tally frequencies: Counter(list/array)
+# itertools.combinations efficiently generates all unique combinations: combinations(list/array, 2)
+
+# Combination(n, r) = n! / r! (n - r)!   (order doesn't matter)
+# Permutation(n, r) = n! /    (n - r)!      (order matters)
 
 from collections import Counter
 from itertools import combinations
@@ -2169,13 +2174,24 @@ secondary_types = [
     'Flying',
     'Dragon']
 
+
 names_type1 = [*zip(names, primary_types)]
 print(*names_type1[:5], sep='\n')
 print('\n')
+# ('Abomasnow', 'Grass')
+# ('Abra', 'Psychic')
+# ('Absol', 'Dark')
+# ('Accelgor', 'Bug')
+# ('Aerodactyl', 'Rock')
 
 name_types = [*zip(names, primary_types, secondary_types)]
 print(*name_types[:5], sep='\n')
 print('\n')
+# ('Abomasnow', 'Grass', 'Ice')
+# ('Abra', 'Psychic', 'nAn')
+# ('Absol', 'Dark', 'nAn')
+# ('Accelgor', 'Bug', 'nAn')
+# ('Aerodactyl', 'Rock', 'Flying')
 
 differing_lengths = [*zip(names[:5], primary_types[:3])]
 print(*differing_lengths, sep='\n')
@@ -3691,17 +3707,21 @@ generations = [
 type_count = Counter(primary_types)
 print(type_count, '\n')
 print('\n')
+# Counter({'Water': 66, 'Normal': 64, 'Bug': 51, 'Grass': 47, 'Psychic': 31, 'Rock': 29, 'Fire': 27, 'Electric': 25, 'Ground': 23, 'Fighting': 23, 'Poison': 22, 'Steel': 18, 'Ice': 16, 'Fairy': 16, 'Dragon': 16, 'Ghost': 13, 'Dark': 13}) 
+
 
 gen_count = Counter(generations)
 print(gen_count, '\n')
+# Counter({5: 122, 3: 103, 1: 99, 4: 78, 2: 51, 6: 47}) 
 
-# [output_if_true | for variable in iterable | if condition]
+
+# # [output_if_true | for variable in iterable | if condition]
 starting_letters = [name[0] for name in names]
 print(starting_letters)
 
-starting_letters_count = Counter(starting_letters)
-print(starting_letters_count)
-print('\n')
+# starting_letters_count = Counter(starting_letters)
+# print(starting_letters_count)
+# print('\n')
 
 
 #######
@@ -3709,12 +3729,13 @@ print('\n')
 pokemon = ['Geodude', 'Cubone', 'Lickitung', 'Persian', 'Diglett']
 
 combos_obj = combinations(pokemon, 2)
-print(type(combos_obj), '\n')
-print('\n')
+print(type(combos_obj))
 
-combos_2 = [*combos_obj]
-print(combos_2)
+print([*combos_obj])
 print('\n')
+# [('Geodude', 'Cubone'), ('Geodude', 'Lickitung'), ('Geodude', 'Persian'), ('Geodude', 'Diglett'), ('Cubone', 'Lickitung'), ('Cubone', 'Persian'), ('Cubone', 'Diglett'), ('Lickitung', 'Persian'), ('Lickitung', 'Diglett'), ('Persian', 'Diglett')]
 
-# combos_4 = [*combinations(pokemon, 4)]
-# print(combos_4)
+
+combos_4 = [*combinations(pokemon, 4)]
+print(combos_4)
+# [('Geodude', 'Cubone', 'Lickitung', 'Persian'), ('Geodude', 'Cubone', 'Lickitung', 'Diglett'), ('Geodude', 'Cubone', 'Persian', 'Diglett'), ('Geodude', 'Lickitung', 'Persian', 'Diglett'), ('Cubone', 'Lickitung', 'Persian', 'Diglett')]
