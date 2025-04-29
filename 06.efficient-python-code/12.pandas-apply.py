@@ -30,6 +30,8 @@ print(stat_totals)
 # [['RS', 'RA']] → selects just those two columns
 total_runs_scored = rays_df[['RS', 'RA']].apply(sum, axis=1)
 
+########
+
 # use a lambda instead of "sum"
 def text_playoffs(num_playoffs): 
 	if num_playoffs == 1:

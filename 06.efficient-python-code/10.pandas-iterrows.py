@@ -1,4 +1,4 @@
-# .iterrows()  lets you loop through a DataFrame row by ro
+# .iterrows()  lets you loop through a DataFrame row by row
 
 import pandas as pd
 
