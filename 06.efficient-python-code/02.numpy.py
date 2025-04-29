@@ -61,3 +61,5 @@ print(guest_welcomes)
 # ['Welcome Jerry! You arrived 7 minutes late.', 'Welcome Kramer! You arrived 17 minutes late.', 'Welcome Elaine! You arrived 27 minutes late.', 'Welcome George! You arrived 37 minutes late.', 'Welcome Newman! You arrived 47 minutes late.']
 
 print(*guest_welcomes, sep='n')
+# Welcome Jerry! You arrived 7 minutes late.nWelcome Kramer! You arrived 17 minutes late.nWelcome Elaine! You arrived 27 minutes late.nWelcome George! You arrived 37 minutes late.nWelcome Newman! You arrived 47 minutes late.
+

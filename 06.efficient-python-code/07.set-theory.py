@@ -34,17 +34,18 @@ misty_set = set(misty_pokedex)
 
 # set1.intersection(set2) wills show the intersection
 both = ash_set.intersection(misty_set)
-print(both)
+print(both, '\n')
 
 # set1.difference(set2) will show the delta
 ash_only = ash_set.difference(misty_set)
-print(ash_only)
+print(ash_only, '\n')
 
 misty_only = misty_set.difference(ash_set)
+print(misty_only, '\n')
 
 # set1.union(set2) combines them
 unique_to_set = ash_only.union(misty_only)
-print(unique_to_set)
+print(unique_to_set, '\n')
 
 
 #########
@@ -1568,9 +1569,9 @@ uniq_names_func = find_unique_items(names)
 print(len(uniq_names_func))
 
 uniq_names_set = set(names)
-print(len(uniq_names_set))
+print(len(uniq_names_set), '\n')
 
-print(sorted(uniq_names_func) == sorted(uniq_names_set))
+print(sorted(uniq_names_func) == sorted(uniq_names_set), '\n')
 
 uniq_types = set(primary_types)
 uniq_gens = set(generations)
