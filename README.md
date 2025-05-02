@@ -1,5 +1,14 @@
 # Local Python Environment Setup
 
+This repo uses "pip workflow" or "requirements-based workflow".
+
+It's the traditional approach to Python dependency management that relies on:
+
+- venv for virtual environment creation
+- pip for package installation
+- requirements.txt for dependency specification
+- Makefile for automation (though this is optional)
+
 ```bash
 brew install direnv  # install direnv (if not installed)
 echo 'eval "$(direnv hook zsh)"' >> ~/.zshrc && source ~/.zshrc  # enable direnv in Zsh if not already so
@@ -89,6 +98,7 @@ pip install -r requirements.txt
 ```
 
 This approach ensures a clean environment with all dependencies properly resolved. It's particularly useful when:
+
 - You encounter version conflicts between packages
 - Build tools or setuptools are not working properly
 - You've made significant changes to your requirements.txt
@@ -148,6 +158,7 @@ To reinstall all packages from requirements.txt:
 ```sh
 pip install -r requirements.txt
 ```
+
 ## Type Checking with mypy
 
 This project uses mypy for static type checking. To run type checking:

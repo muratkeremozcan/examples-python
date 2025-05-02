@@ -24,7 +24,6 @@ def mean(values: Iterable[float]) -> float:
 	"""Calculate the mean of a sequence of floats."""
 	return sum(values) / len(values)
 
-
 def median(values: Iterable[float]) -> float:
   values = sorted(values)
   midpoint = int(len(values) / 2)
