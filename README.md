@@ -1,4 +1,4 @@
-# Local Python Environment Setup
+# Python Environment Setup with pip
 
 This repo uses "pip workflow" or "requirements-based workflow".
 
